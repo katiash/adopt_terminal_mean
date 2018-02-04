@@ -1,0 +1,12 @@
+<div id ="list_wrapper">
+
+    <h2>Details about {{ selectedPet.name }}</h2>
+    <a [routerLink]="['']" >  Home </a> 
+    
+    <strong>Pet type:</strong> {{selectedPet.type}}
+    <strong>Pet description:</strong>{{selectedPet.description}}
+    <strong>Pet skills:</strong>{{selectedPet.skills}}
+{{selectedPet | json}}
+    <button class="button_del" type="button" (click)="adoptPet(selectedPet._id)">Adopt this pet</button>        
+    
+</div>

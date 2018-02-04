@@ -1,0 +1,32 @@
+<div id="redit_wrapper">
+    <h2>Edit the restaurant</h2>
+       
+    <div class="center_form">
+
+    <!-- NOTE TO DEV: SHOULD CHECK THAT ERRORS EXIST ON THESE FIELDS BEFORE RENDERING ON OTHER HTMLS ALSO... -->
+        <div class="error" *ngIf="errors">  
+          <ul style="list-style-type:none">
+            <li *ngIf="errors.errors.name"> {{ errors.errors.name.message | json }}</li>
+            <li *ngIf="errors.errors.type">{{ errors.errors.type.message | json }}</li>
+            <li *ngIf="errors.errors.description">{{ errors.errors.description.message | json }}</li>
+            
+          </ul>	
+        </div>		
+            
+        <form (submit) = "editPet()">
+          <p>Pet name:</p> 
+          <p><input type="text" class="form_field" name="selectedPet.name" [(ngModel)] = "selectedPet.name"/></p>
+          
+          <p>Pet type:</p>
+          <p><input type="text" class="form_field" name="selectedPet.type" [(ngModel)] = "selectedPet.type"/></p>
+          
+          <p>Description:</p>
+          <p><input type="text" class="form_field" name="selectedPet.description" [(ngModel)] = "selectedPet.description"/></p>
+
+          <button class = "button_norm" type="submit">Edit</button> &nbsp;&nbsp;
+          <a [routerLink]="['']" >  <button class="button_del" type="button"> Cancel</button>  </a>
+        </form>
+  
+    </div>
+  </div>	
+    

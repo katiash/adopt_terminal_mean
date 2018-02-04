@@ -1,0 +1,33 @@
+<div id="reg_wrapper">
+    <h2>Know of a pet needing a home?</h2>
+     
+    <!-- {{errors | json }} -->
+    <div class="center_form">
+  
+        <div class="error" *ngIf="errors">  
+  
+          <ul style="list-style-type:none">
+              <li *ngIf="errors.errors.name"> {{ errors.errors.name.message | json }}</li>
+              <li *ngIf="errors.errors.type">{{ errors.errors.type.message | json }}</li>
+              <li *ngIf="errors.errors.description">{{ errors.errors.description.message | json }}</li>
+          </ul>
+        </div>		
+          
+          <form (submit) = "createPet()">
+        <p>Pet name:</p> 
+        (Names have to be unique to submit to the database.)
+        <p><input type="text" class="form_field" name="newPet.name" [(ngModel)] = "newPet.name"/></p>
+        
+        <p>Pet type:</p>
+        <p><input type="text" class="form_field" name="newPet.type" [(ngModel)] = "newPet.type"/></p>
+          
+        <p>Description:</p>
+        <p><input type="text" class="form_field" name="newPet.description" [(ngModel)] = "newPet.description"/></p>
+
+        <button class = "button_norm" type="submit">Add pet</button> &nbsp;&nbsp;
+        <a [routerLink]="['']"> <button class = "button_del" type="reset">Cancel</button> </a>
+      </form>
+    </div>
+  </div>	
+  
+  

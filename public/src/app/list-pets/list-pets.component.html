@@ -1,0 +1,25 @@
+<div id ="list_wrapper">
+	
+    <a [routerLink]="['new']" > Add a pet to the shelter </a>
+  
+    <table>
+      <thead>
+        <tr>
+          <th class = "t_reg">Name</th>
+          <th class = "t_reg">Type</th>
+          <th class = "t_actions">Actions</th>
+        </tr>		
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pets">
+          <td> {{ p.name }} </td>
+          <td> {{ p.type }} </td>
+          <td> {{ p.description}}</td>
+          <td> 
+            <button class="button_norm" type="button" [routerLink]="['details/',p._id]">Details</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="button_edit" type="button" [routerLink]="['edit/',p._id]">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>		
+        </tr>
+      </tbody>	
+    </table>
+  </div>
